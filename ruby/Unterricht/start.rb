@@ -1,6 +1,7 @@
-comment = "Heute ist Dienstag"
+movie = "Goonies"
 
-#Dies ist ein Kommentar
-3.times do 
-	puts comment.upcase	
-end
+puts "Mikey\'s favorite movie is\n " + movie
+
+rank = 10
+
+puts "#{movie} has rank of #{rank * 2} am #{Time.now}"
