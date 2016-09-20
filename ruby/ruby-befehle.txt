@@ -1,0 +1,5 @@
+Ruby Befehle zum programmieren
+
+Variable zuweisen
+	var = "String"
+	

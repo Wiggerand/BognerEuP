@@ -1,0 +1,12 @@
+Konsole:
+	irb 
+		die Eingabe des Befehls irb auf der Linuxkonsole oeffnet eine Ruby-Konsole, in der alle Ruby-Klassen bekannt sind und genutz werden koennen
+
+Arbeiten mit Datein:
+	Ruby-Code in Dtein wird auf der Linux Konsole mit dem Befehl:
+		ruby datei_name
+	ausgeführt.
+
+Basismethoden:
+	puts
+		Erzeugt eine Konsolenausgabe
