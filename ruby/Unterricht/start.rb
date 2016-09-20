@@ -1,7 +1,9 @@
-movie = "Goonies"
+def movie_listing(movie, rank=5)
+	"Movie: #{movie} ist ein guter Film, mit der Punktzahl: #{rank} am #{set_time}"
+end
 
-puts "Mikey\'s favorite movie is\n " + movie
+def set_time
+	Time.now.strftime("%d.%m.%y")
+end
 
-rank = 10
-
-puts "#{movie} has rank of #{rank * 2} am #{Time.now}"
+puts movie_listing("Tschick",10)
