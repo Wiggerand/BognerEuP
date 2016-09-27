@@ -3,7 +3,7 @@ def movie_listing(movie, rank=5)
 end
 
 def set_time
-	Time.now.strftime("%d.%m.%y")
+	Time.now.strftime("%d.%m.%y.%h.")
 end
 
 puts movie_listing("Tschick",10)

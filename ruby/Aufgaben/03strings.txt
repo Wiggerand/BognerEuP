@@ -1,14 +1,45 @@
 Erzeugen Sie folgende Ausgabe:
-
+name1 = "Larry"
+name2 = "Curly"
+name3 = "Moe"
+name4 = "Shamp"
+health = "has a health of"
+health1 = 60
+health2 = 125
+health3 = 100
+health4 = 90
 
 Larry has a health of 60.
+
+puts "#{name1} #{health} #{health1}"
+
 CURLY has a health of 125.
+
+puts "#{name2} #{health} #{health2}"
+
 *************Moe has a health of 100.*************
 *************Moe has a health of 100.*************
+2.times do
+	puts "#{name3.rjust(20, '*')} #{health} #{health3.to_s.ljust(20, '*')}" 
+	end
+
 Shemp......................... 90 health
 Shemp......................... 90 health
+2.times do
+	puts "#{name4.ljust(20, '.')} #{health4} health"
+	end
+
+
 Players:
         Larry
         Curly
         Moe
+allenamen = <<Heredoc
+Players:
+		#{name1}
+		#{name2}
+		#{name3}
+		Heredoc
+	puts allenamen
+
 The game started on Thursday 08/02/2012 at 11:42AM
