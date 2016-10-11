@@ -4,7 +4,6 @@ class Playlist
       @name = name
       @movies = [] #leeres array um es später zu befüllen
   end 
-
   def add_movie(movie)
       @movies << movie
   end 
@@ -16,16 +15,23 @@ class Playlist
   end
  end
 
-
 class Movie
   
   attr_accessor :title
 
   def initialize(title, rank=0)
-    @title = title.capitalize
+    @title = capitalize_title(title)
     @rank = rank
   end
 
+def capitalize_title(str)
+    str_array = str.split
+    ret = ""
+    str_array.each do |teilstring|
+      ret = ret + " " + teilstring.capitalize
+end
+    ret.strip
+  end
   def thumbs_down
     @rank -= 1
   end
@@ -35,12 +41,13 @@ class Movie
   end
 end
 
-movie1 = Movie.new("Goonies", 10)
-movie2 = Movie.new("Batman", 5)
-movie3 = Movie.new("Spiderman", 8)
+movie1 = Movie.new("Goonies super", 10)
+#movie2 = Movie.new("Batman", 5)
+#movie3 = Movie.new("Spiderman", 8)
 
-playlist1 = Playlist.new("Theo")
-playlist1.add_movie(movie1)
-playlist1.add_movie(movie2)
-playlist1.add_movie(movie3)
-playlist1.play
+#playlist1 = Playlist.new("Theo")
+#playlist1.add_movie(movie1)
+#playlist1.add_movie(movie2)
+#playlist1.add_movie(movie3)
+#playlist1.play
+puts movie1.title
