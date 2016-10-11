@@ -1,10 +1,22 @@
 #1. Legen Sie ein Array an mit den Zahlen 15 bis 20 an.
+zahlen = (15..20).to_a
 #a. geben Sie diese Zahlen in einem Block aus
+zahlen
 #b. geben Sie die Zahlen mit dem Index etwa so aus: Index: 0 - Wert: 15
+x = 0
+zahlen.each do |key|
+	puts "Index: #{x} - Wert: #{key}"
+	x = x + 1
+end
 #c. erzeugen Sie in einem Block einen Hash, wobei Sie die Arraywerte als Index nutzen und als Wert eine Zufallszahl zwischen 100 und 200 speichern. 
+zahlen = (100..200).to_a
+
 #d. Geben Sie diesen Hash anschließen etwa so aus: Index: 15 - Wert: 121
+
 #e. Ergänzen Sie die Ausgabe. Wenn der Wert größer als 150 ist, dann sieht die Ausgabe aus:  Index: 15 - Wert: 151. WOW
+
 #f. Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in einem Array
+
 #g. ! Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in einem Hash mit der Zahl als Schlüssel
 
 #Zusatz Zahlen im Array und im Hash:
@@ -46,14 +58,4 @@
 #ergebnis = { :diff => ["Federball", "Whisky", "Fussball", "Bier"], :match => ["Programmieren"]}
 
 
-#1. Legen Sie ein Array an mit den Zahlen 15 bis 20 an.
-#a. geben Sie diese Zahlen in einem Block aus
-#b. geben Sie die Zahlen mit dem Index etwa so aus: Index: 0 - Wert: 15
-#c. erzeugen Sie in einem Block einen Hash, wobei Sie die Arraywerte als Index nutzen und als Wert eine Zufallszahl zwischen 100 und 200 speichern. 
-#d. Geben Sie diesen Hash anschließen etwa so aus: Index: 15 - Wert: 121
-#e. Ergänzen Sie die Ausgabe. Wenn der Wert größer als 150 ist, dann sieht die Ausgabe aus:  Index: 15 - Wert: 151. WOW
-#f. Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in einem Array
-#g. ! Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in einem Hash mit der Zahl als Schlüssel
 
-zahlen = (15..20).to_a
-zahlen
