@@ -4,3 +4,5 @@ Dokumentation für Klassen:
 
 Tutorials
 http://www.tutorialspoint.com/ruby/
+
+https://www.pluralsight.com/

@@ -46,6 +46,8 @@ puts kunde1.adresse
 
 class Kredit
 
+	attr_accessor
+
 	def initialize(kunde)
 		@kunde = kunde
 	end

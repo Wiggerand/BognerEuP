@@ -1,20 +1,60 @@
-#1. Legen Sie ein Array an mit den Zahlen 15 bis 20 an.
+#1. Legen Sie ein Array an mit den Zahlen 15 bis an.
+
 zahlen = (15..20).to_a
 #a. geben Sie diese Zahlen in einem Block aus
-zahlen
+puts "Aufgabe 1 a\n\n"
+zahlen.each { |zahl| 
+puts zahl
+ }
+ 
+puts "_____________________\n\n"
 #b. geben Sie die Zahlen mit dem Index etwa so aus: Index: 0 - Wert: 15
-x = 0
-zahlen.each do |key|
-	puts "Index: #{x} - Wert: #{key}"
-	x = x + 1
-end
-#c. erzeugen Sie in einem Block einen Hash, wobei Sie die Arraywerte als Index nutzen und als Wert eine Zufallszahl zwischen 100 und 200 speichern. 
-zahlen = (100..200).to_a
+puts "Aufgabe 1 b\n\n"
 
+zahlen.each { |value|  
+puts "Index: #{zahlen.index(value)} - Wert: #{value}"
+}
+
+puts "------------------------\n\n"
+#c. erzeugen Sie in einem Block einen Hash, wobei Sie die Arraywerte als Index nutzen und als Wert eine Zufallszahl zwischen 100 und 200 speichern. 
+puts "Aufgabe 1 c\n\n"
+
+hash1 = Hash.new
+
+zahlen.each { |value|
+
+hash1[value] = rand(100..200)
+
+  }
+
+  puts hash1
+
+
+#zahlen100 = rand(100..200).to_i
+#index = zahlen
+puts "----------------------\n\n"
 #d. Geben Sie diesen Hash anschließen etwa so aus: Index: 15 - Wert: 121
+puts "Aufgabe 1 d\n\n"
+
+hash1.each{|key, value| 
+
+puts "Index: #{key} - Wert: #{value}"
+}
+
+
+puts "--------------\n\n"
 
 #e. Ergänzen Sie die Ausgabe. Wenn der Wert größer als 150 ist, dann sieht die Ausgabe aus:  Index: 15 - Wert: 151. WOW
+puts "Aufgabe 1e\n\n"
+hash1.each{|key, value|
+if #{value} < 150
+puts "Index: #{key} - Wert: #{value}."
+	else
+puts "Index: #{key} - Wert: #{value}. WoW"
+end
+}
 
+puts "--------------\n\n"
 #f. Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in einem Array
 
 #g. ! Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in einem Hash mit der Zahl als Schlüssel
