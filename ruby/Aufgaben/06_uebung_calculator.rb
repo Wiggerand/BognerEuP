@@ -4,9 +4,9 @@
 
 class Calculator #Klasse
 
-	def initialize(zahl1, zahl2) #Konstructor
-		@zahl1 = zahl1
-		@zahl2 = zahl2
+attr_accessor :zahl1, :zahl2
+
+	def initialize(zahl1, zahl2) #Konstructor @zahl1 = zahl1 @zahl2 = zahl2
 	end
 
 	def add   				#Methode
@@ -22,3 +22,4 @@ end
 obj = Calculator.new(10, 8)		#Objektinstanz wird erzeugt mit new und zu einer Variablen "obj" mit "=" zugewiesen
 puts obj.add 					#Aufruf der Methode erfolgt mit obj.add
 puts obj.substract
+

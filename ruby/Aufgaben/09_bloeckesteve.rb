@@ -4,8 +4,8 @@ arr = (15..20).to_a
 puts "Aufgabe 1. a)"
 arr.each { |item| puts item }
 
-puts "______________________________"
-puts ""
+puts "______________________________\n"
+
 
 # b)
 puts "Aufgabe 1. b)"

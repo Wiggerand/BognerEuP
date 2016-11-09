@@ -16,7 +16,8 @@ puts "Index: #{zahlen.index(value)} - Wert: #{value}"
 }
 
 puts "------------------------\n\n"
-#c. erzeugen Sie in einem Block einen Hash, wobei Sie die Arraywerte als Index nutzen und als Wert eine Zufallszahl zwischen 100 und 200 speichern. 
+#c. erzeugen Sie in einem Block einen Hash, wobei Sie die Arraywerte als Index 
+#nutzen und als Wert eine Zufallszahl zwischen 100 und 200 speichern. 
 puts "Aufgabe 1 c\n\n"
 
 hash1 = Hash.new
@@ -47,17 +48,19 @@ puts "--------------\n\n"
 #e. Ergänzen Sie die Ausgabe. Wenn der Wert größer als 150 ist, dann sieht die Ausgabe aus:  Index: 15 - Wert: 151. WOW
 puts "Aufgabe 1e\n\n"
 hash1.each{|key, value|
-if #{value} < 150
-puts "Index: #{key} - Wert: #{value}."
+if value > 150
+puts "Index: #{key} - Wert: #{value} WoW!!!"
 	else
-puts "Index: #{key} - Wert: #{value}. WoW"
+puts "Index: #{key} - Wert: #{value}"
 end
 }
 
-puts "--------------\n\n"
-#f. Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in einem Array
+puts "-------Aufgabe 1f)-------\n\n"
+#f. Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in 
+#   einem Array
 
-#g. ! Durchlaufen Sie das Array und speichern Sie die Quadratzahlen in einem Hash mit der Zahl als Schlüssel
+#g. ! Durchlaufen Sie das Array und speichern Sie die Quadratzahlen 
+#   in einem Hash mit der Zahl als Schlüssel
 
 #Zusatz Zahlen im Array und im Hash:
 #a. Legen Sie ein Array an mit 10 Primzahlen. Die Ausgabe des Arrays erzeugt:
