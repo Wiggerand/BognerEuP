@@ -20,6 +20,7 @@ class Movie
   attr_accessor :title
 
   def initialize(title, rank=0)
+    
     @title = capitalize_title(title)
     @rank = rank
   end
