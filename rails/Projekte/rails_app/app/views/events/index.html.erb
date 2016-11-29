@@ -1,11 +1,28 @@
-<h1>Events</h1>
+<h1 align="center">Events</h1>
 
-<ul>
+<table border="5">
+<tr>
+	<th>Name</th>
+	<th>Bescreibung</th>
+	<th>Ort</th>
+	<th>Preis</th>
+	<th>Begin</th>
+	<th>---<% time_tag Date.today, datetime: Date.today.strftime('%G-W%V') %>---</th>
+</tr>
+
+
 
 	<% @events.each do |event| %>
-		<li><%= event.name %></li>
-		in: <%= event.location %>,
-		kostet: <%= event.price %>
+		<tr>
+		<td><%= event.name %></td>
+		<td><%= truncate(event.description, length: 30) %></td>
+		<td><%= event.location %></td>
+		<td><%= format_price(event) %></td>
+		<td><%= event.start_date %></td>
+		
+		</tr>
+
+		
 	<% end %>
 
-</ul>
+</table>

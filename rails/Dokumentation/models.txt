@@ -4,7 +4,9 @@ Die Datenbankeinstellungen der Applikationen sind in der Datei:
 	config/database.yml
 
 Im Allgemeinen gilt:
-	Eine Tabelle in der Datenbank entspricht eine Klasse im Unterordner app/models
+	Eine Tabelle in der Datenbank entspricht eine Klasse im 
+
+	Unterordner app/models
 
 	Models sind grundsätzlich im Singular benannt:
 
@@ -17,9 +19,15 @@ Im Allgemeinen gilt:
 
 Erstellen von Tabellen/Models:
 	Der Befehl:
-		rails g model event name:string location:string price:decimal
+
+		rails g model event name:string location:string 
+
+		price:decimal
+	
 	erstellt:
+	
 		Datei app/models/event.rb mit der Klasse: class Event
+	
 		Datei db/migrate/324242424_create_events.rb
 
 	Alle Änderungen an einer Datenbank werden mit Hilfe von Migrationen erstellt, d.h. Ruby-Klassen in denen Tabellen neu angelegt oder verändert werden können.

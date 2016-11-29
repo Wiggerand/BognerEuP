@@ -3,9 +3,11 @@ Anlegen eines neuen Projektes
 
 Ordnerstruktur
 	app
-		controler
-		model
-		view
+		/controler
+		
+		/model
+		
+		/view
 
 	config
 

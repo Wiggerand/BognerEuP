@@ -6,10 +6,15 @@ Convention Over Configuration
 	Es gibt Regeln die eine Automaatisierung durch den rails generator ermöglichen
 		z.B:
 			Controller sind immer im Plural und die Klasse wird im CamelCasing benannt:
+				
 				movies_controller.rb
+					
 					class MoviesController
+				
 				models sind im Singular benannt:
+				
 					app/models/event.rb
+				
 						class Event
 				Die Tabellen, die zu den Models gehören sind immer im Plural
 					Tabelle heißt: events
