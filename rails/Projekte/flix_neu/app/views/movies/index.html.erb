@@ -1,0 +1,28 @@
+<h1 align="center">Movies</h1>
+<table border="0">
+<tr>
+<th>Name des Films</th>
+<th>Schauspieler</th>
+<th>Rating</th>
+<th>Umsatz in €</th>
+<th>Eintrittspreis</th>
+<th>Zeigen</th>
+<th>Edit</th>
+</tr>
+
+<% @movies.each do |movie| %>
+<tr>
+<td><%= movie.title %></td>
+<td><%= movie.name %></td>
+<td><%= movie.rating %></td>
+<td><%= flop(movie.total_gross) %></td>
+<td><%= movie.price %></td>
+<td><%= link_to "Zeigen", movie_path(movie.id) %></td>
+<td><%= link_to "Edit", edit_movie_path(movie.id) %></td>
+<td><%= link_to "Delete", movie_path(movie.id), method: :delete, data: { confirm: 'Sicher Löschen?' } %></td>
+</tr>
+<% end %>
+
+</table>
+
+<p><%= link_to "Neuen Movie anlegen", new_movie_path %></p>

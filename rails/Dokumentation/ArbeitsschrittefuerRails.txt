@@ -1,0 +1,51 @@
+1.	Über die Konsole in den Ordner Projekte
+2.	Neue APP starten: rails new rails_app2
+3.	rails_app2 Ordner öffnen
+4.	Ordner unten stehen die installierten Gemmfile's ( werden abgeglichen bzw aktualisiert im Gemfile.lock) Module rubyracer auskommentieren
+5.	bundle install ausführen gilt für das aktuelle Projekt muss gemacht werden
+6.	rails s stratet den Server
+7.	Browser öffnen localhost:3000 2. server rails s -p3001 
+8.	rails g controller movies Plural(Mehrzahl)
+	movies_controller wurde jetzt erstellt
+	App / Controller / movies_controller
+9. localhost:3000/movies
+10.	Ordner config / routes.rb resources :events hinzufügen
+
+12.	Methode erstellen in dem Ordner controllers movies_controller.rb
+ def index 
+@events = %w(Weihnachten Weinen)
+def
+@event = "jj"
+end
+end
+13.	Template fehlt im Browser
+14.	Ordner views / events / index.html.erb in dem Ordner erstellen html programmieren
+15.	<% @events.each do |event| %>
+<%= event %>
+<% en %>
+16.	rails g model event name:string 
+	rails g model movie title rating:integer total_gross:decimal 
+	immer einzahl bei Model Konsole
+17.	Ordner db / migrate / 2534552364435 erweitern 
+	t.string :name
+	t.decimal :price
+18.	rake db:migrate Konsole automatisierte Versionsverwaltung
+19.	rails c
+20.	Event.all geht in die event.rb 
+	Event.create(name: "Weinen", datum: "2016-12-28")
+21.	events_controller.rb 
+	@events = Event.all
+
+22.	Konsole: rails g migration AddFieldsToEvents 				start_date:datetime description:text
+	rake db:migrate:status 
+	rake db:rollback db / migrate / 23534325 "Nichts verändern in der Datei!!!" Nur mit db:rollback nimmt die letzte
+23.	Ordner db / migrate / seeds.rb
+	Event.create(name: , description: , start_date: , location: , price:)
+
+	railsguide	guide.rubyonrails.org
+	pragprog.com
+	agile web development rails 5
+	upskillcourses.com
+	ruby auf schienen.de
+	michaelhartl.com
+	pragmaticstudio.com online kurse

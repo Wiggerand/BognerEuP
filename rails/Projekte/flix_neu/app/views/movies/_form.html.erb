@@ -1,0 +1,29 @@
+<%= form_for(@movie) do |f| %>
+	
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_area :name %>
+	</p>
+	<p>
+		<%= f.label :rating %>
+		<%= f.text_field :rating %>
+	</p>
+	<p>
+		<%= f.label :price %>
+		<%= f.number_field :price %>
+	</p>
+	<p>
+		<%= f.label :total_gross %>
+		<%= f.number_field :total_gross %>
+	</p>
+	<p>
+		<%= f.submit :Abschicken %>
+		
+	</p>
+	<p><%= link_to "Alle Movies anzeigen", movies_path %></p>
+
+<% end %>

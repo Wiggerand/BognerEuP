@@ -1,0 +1,39 @@
+Link:
+http://guides.rubyonrails.org/active_record_validations.html
+
+Rails hat standardmäßig eine Validierungsfunktion für Usereingaben.
+Jedes Datenbank-Tabellenfeld kann in der jeweiligen Model-Klasse überprüft werden.
+Vor dem Speichern eines Datensatzes überprüft Rails, ob alle im Model definierten Validierungen true ergeben.
+
+Model:
+	Beispiele:
+	validates :name, :description, :location, presence: true #validiere in der Spalte Name
+	validates :description, length: { minimum: 25 }
+	validates :price, numericality: { greater_than_or_equal_to: 0} 
+
+Auf der Konsole:
+rails c
+2.3.1 :001 > e = Event.new
+2.3.1 :002 > e.valid?
+2.3.1 :003 > e.errors
+2.3.1 :004 > e.errors.full_messages
+2.3.1 :005 > e.save
+2.3.1 :006 > e.name = "Kater auskurieren"
+2.3.1 :007 > e.save
+
+Im events_controller.erb
+
+def create
+		@event = Event.new(event_params)
+		if @event.save
+			redirect_to events_path
+		else
+			rander :new
+		end
+		
+	end
+	erweitern bzw umschreiben.
+
+	Im _form.html.erb
+	<%= @event.errors.full_messages.to_sentence %>
+	hinzufügen.
