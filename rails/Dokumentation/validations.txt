@@ -37,3 +37,19 @@ def create
 	Im _form.html.erb
 	<%= @event.errors.full_messages.to_sentence %>
 	hinzufügen.
+
+#Erstellt eine Registrierungsseite: (models/registration.rb)
+	rails g scaffold registration name:string email:string how_heard:string event:references
+
+	In model/event.rb
+		has_many :registrations, :dependent => :destroy  #oder [user, items, ratings etc] einfügen.Das ist die "1" zu n Beziehung
+
+		rails c
+		r = Registration.new
+		e = Event.first
+		r
+		r.event = e
+		r.save
+		r
+		r.event
+		r.event.name

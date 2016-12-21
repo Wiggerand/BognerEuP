@@ -2,8 +2,14 @@
 <% if @event.errors.any? %>
 		<div class="panel">
 			<h2>Der Datensatz <%= @event.class.name.titleize.downcase %> konnte nicht gespeichert werden</h2>
-			<p>
-			Korrigieren Sie bitte  <%= pluralize(@event.errors.count, 'den', plural: 'die' ) %> Fehler.</p>
+			<p>Korrigieren Sie bitte 
+			<% if @event.errors.count == 1 %>
+				<%= "den" %>
+				<% else %>
+				<%= "die" %>
+				<% end  %>
+			<%= @event.errors.count %>
+			Fehler.
 			<p>
 				<ul>
 					<% @event.errors.full_messages.each do |message| %>
@@ -35,7 +41,7 @@
 		<%= f.datetime_select :start_date %>
 	</p>
 	<p>
-		<%= f.submit :Abschicken %>
+		<%= f.submit :Abschicken, :class => "button success"%>
 		
 	</p>
 <% end %>

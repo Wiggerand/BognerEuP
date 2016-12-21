@@ -1,0 +1,5 @@
+Erstellen Sie eine neue Resource review mit den Feldern name, stars (integer), comment (text), movie_id(integer)
+Sorgen Sie dafür, dass die abhängigen Reviews gelöscht werden, wenn ein Movie gelöscht wird.
+
+Verschachteln Sie die Ressource Review als abhängig von der Movies-Ressource.
+Sorgen Sie dafür, dass alle Actions funktionieren.

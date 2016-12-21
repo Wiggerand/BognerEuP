@@ -10,14 +10,19 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+  <body>
 <div class="row">
-    
-      <%= image_tag 'logo.png' %>
+
+    <a href="/events">
+      <%= image_tag 'logo.png' %></a>
     </div>
       <div class="clearfix">
       </div>
+  
       <%= render 'layouts/top_bar' %>
         <div class="row">
+       
+        <%= render 'layouts/flash_messages' %>
           <div class="medium-3 columns">
              <%= render 'layouts/side_bar' %>
           </div>
