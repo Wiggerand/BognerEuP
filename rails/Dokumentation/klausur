@@ -1,1 +1,94 @@
+-rails new
+-gemfiles
+-bundle install
+-rails g foundation:install
+-rails g scaffold books author:string title:string description:text published_on:date
+-rake db:migrate
+-Im views/layouts _top_bar.html.erb erstellen
+und die foundation seite für die top bar füllen
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text"><%= link_to 'Show Books', books_path %></li>
+      <li>
+        <a href="#">One</a>
+        <ul class="menu vertical">
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Two</a></li>
+      <li><a href="#">Three</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
+-In der views/layouts/application.html.erb über dem yield 
+<%= render 'layouts/top_bar' %> einfügen
 
+-In der app/assets/application.css
+*= require foundation hinzufügen
+-rails g scaffold likes quality:integer book:references
+-rake db:migrate
+-In den models/book.rb in der Klasse Book
+has_many :likes, :dependent => :destroy erstellen
+-In der config/routes.rb
+den root festlegen und die likes verschachteln do end
+-In der views/books/index.html.erb den link likes erzeugen
+<td><%= link_to 'Likes', book_likes_path(book.id) %></td>
+-In den views/likes/_form.html.erb von
+<%= form_for(like) do |f| %>
+auf
+<%= form_for([@book, @like]) do |f| %> ändern
+-Im likes controller die Methode im private hinzufügen
+    def set_book
+      @book = Book.find(params[:book_id])
+    end
+    before action :set_book hinzufügen
+    Methoden ändern
+    def index
+      @likes = @book.like(s)
+    end
+    &
+    def new
+      @like = @book.likes.new
+    end
+    -Diverse Pfade ändern
+    --Aufgabe 7 Likes nur von 1 - 5 erzeugen
+    -In den models likes.rb
+    HOW_HEARD_OPTIONS = [1, 2, 3, 4, 5]
+    --Aufgabe 8 view-helper erstellen um durchschnitt zu berechnen
+    in  app/helpers/book_helper.rb
+    Die Methode average hinzufügen
+    module BooksHelper
+	    def average(book)
+		    i = 0
+		    book.likes.each do |f|
+		    	i = i + f.quality
+		     end
+		    e = i / book.likes.count
+	     end
+    end
+    und in der view/books/show.html.erb
+    <p>
+  <strong>Durschnitt der Likes:</strong>
+  <%= average(@book) %>
+</p>
+hinzufügen
+rails c
+e = Book.new
+e.title = "Waddehaddedudeda"
+e.save
+oder
+e = Book.create(title: "Waddehaddedueda", author: "BogisBester")
+e = book.last
+e.likes.create(quality: 5)
+rails g migration AddFiledToLikes description:text
+    
+    validates :quality, inclusion: { in: HOW_HEARD_OPTIONS }
