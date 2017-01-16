@@ -63,6 +63,8 @@ auf
     --Aufgabe 7 Likes nur von 1 - 5 erzeugen
     -In den models likes.rb
     HOW_HEARD_OPTIONS = [1, 2, 3, 4, 5]
+    validates :quality, inclusion: { in: HOW_HEARD_OPTIONS }
+    
     --Aufgabe 8 view-helper erstellen um durchschnitt zu berechnen
     in  app/helpers/book_helper.rb
     Die Methode average hinzufügen
@@ -91,4 +93,4 @@ e = book.last
 e.likes.create(quality: 5)
 rails g migration AddFiledToLikes description:text
     
-    validates :quality, inclusion: { in: HOW_HEARD_OPTIONS }
+    
