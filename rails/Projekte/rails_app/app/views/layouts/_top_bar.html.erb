@@ -7,9 +7,13 @@
   </div>
   <div class="top-bar-right">
     <ul class="menu">
+      <% if current_user %>
+      <%= current_user.name.capitalize %>
+      <%= link_to 'Logout', session_path, method: :delete %>
+      <% else %>
       <li><%= link_to 'Sign Up', signup_path, :class => "button alert" %></li>
       <li><%= link_to 'Sign In', new_session_path, :class => "button success" %></li>
-      
+      <% end %>
     </ul>
   </div>
 </div>
