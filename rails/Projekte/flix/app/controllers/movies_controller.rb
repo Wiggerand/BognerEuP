@@ -3,6 +3,11 @@ class MoviesController < ApplicationController
 
   # GET /movies
   # GET /movies.json
+  
+  def alle
+    @reviews = Review.all
+  end
+
   def index
     @movies = Movie.all
   end

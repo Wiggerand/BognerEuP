@@ -13,6 +13,22 @@ Anzeigen aller Events:
 	Event.all
 
 Suchen eines speziellen Events:
-	
-	Event.find_by(name: "Weihnachtsmann ankokeln")
+	e = Event.find(id)
+	e = Event.find_by(name: "Weihnachtsmann ankokeln")
+	e = Event.where(name: "Eventname").first
+
+Beziehungen zwischen den Tabellen events + registrations
+	e = Event.first
+	e.registrations.create
+		über den konkreten Event (Objekt: e) kann eine Registrierung
+		angelegt werden
+
+	e.registrations
+		zeigt alle Gegistrierungen, die diese, Event zugeordent sind
+
+	r = Registration.last
+	r.event
+		auf das Event-Objekt dem die Gegistrierung zugeordnet ist, zugreifen
+	r.event.title
+		der Titel des Events kann ausgegeben werden
 

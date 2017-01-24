@@ -1,0 +1,71 @@
+Kernel:
+	Linux ist eigentlich ausschliesslich das
+		Core Operating System
+		- ohne jede Applikation
+		d.h. es werden lediglich die Schnittstellen zu: Netzwerk,
+		Peripheriegeraten, Tastatur, Bildschirm etc. modular eingebunden.
+
+Befehle:
+	Kernelversion:	unmae -r
+	Distribution:	lsb_release -a
+	Memory-Info		free
+					less /proc/meminfo
+					free -m 		(Gibt den Speicher in Mb aus)
+
+	tail -n 100 /var/log/syslog		zeigt die lezten 100 Zeilen im syslog an
+	tail -f /var/log/syslog			öffnet die Datei dauerhaft
+
+Bootmeldungen:
+	less /var/log/bot.log
+	dmesg | grep -i network			Spezielle suche nach den Netzwerkadaptern
+
+Runlevel:
+	0		Halt / Maschine aus
+	1		Single user, only root
+	2		Multiuser, no gui, no network
+	3		Multiuser with network, no gui
+	4		User definierbar (frei gehalten)
+	5		Full
+	6		Reboot
+
+Ubuntu:		runlevel 2 & 3 sind äquivalent =
+
+Softwareverwaltung:
+
+	Paketmanagement
+		RPM, YUM: Red Hat, CentOS, Fedora
+		DPKG: Debian, Ubuntu
+
+	DPKG - Paketverwaltung:
+		- deb - files
+		- besteht aus Archiven mit einer festgelegten Struktur, d.h. einer
+		  Ordnerstruktur, Meta- und Konfigurationsdateien, Installationsskript (sh Datei)
+		- sichert, das alle Vorraussetzungen erfüllt sind
+		- warnt vor Konflikten, wenn Pakete unverträglich sind
+		- enthält die man Pages
+		- kümmert sich um die Aktuallisierung des kompletten Systems
+		- ermöglicht einen Überlick über die installierte Software
+		- ermöglicht eine saubere Deinstallation
+
+	Paketkomponenten:
+		main:
+			OpenSource komplett, wird vom Ubuntu Team erstellt und verwaltet
+		restricted:
+			Ubuntu Team, aber incl. nicht OpenSource Software (Grafiktreiber)
+		universe:
+			OpenSource, erstellt und gepflegt von der Community
+		multiverse:
+			Nicht OpenSource	
+
+		Für das konkrete System:
+			siehe less /etc/apt/sources.list
+
+	Update des Systems:
+		sudo apt-get Update		aktualisiert die Paketquellen
+		sudo apt-get upgrade	vergleicht Versionstand nach dem Update für aktuelle Versionen
+								und führt die Aktualisierung durch
+
+	Installation:
+		sudo apt-get update
+		sudo apt-get install <paketname>
+

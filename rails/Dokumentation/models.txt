@@ -30,6 +30,26 @@ Erstellen von Tabellen/Models:
 	
 		Datei db/migrate/324242424_create_events.rb
 
-	Alle Änderungen an einer Datenbank werden mit Hilfe von Migrationen erstellt, d.h. Ruby-Klassen in denen Tabellen neu angelegt oder verändert werden können.
+	Alle Änderungen an einer Datenbank werden mit Hilfe von Migrationen erstellt, 
+	d.h. Ruby-Klassen in denen Tabellen neu angelegt oder verändert werden können.
 	Diese Migrationen müssen mit einem seperaten Befehl zur Datenbank gesendet werden:
 		rake db:migrate
+
+
+Beziehungen:
+	1:n - In der Untergeordneten Tabelle sind beliebig viele Elemente, einem Element 
+	in der Haupttabelle zugeordnet.
+	Beispiel: Ein Event hat beliebig viele Teilnehmer.
+
+	Eine Beziehnung wird ind Aktivrecord über eine definition in der 
+	Model-Klasse hergestellt:
+
+	class event
+		has_many :members
+
+	class member
+		belongs_to :event
+
+	Durch diese Zuordnung werden beim Starten des Rails-Server eine Vielzahl von
+	Funktionen erstellt, die es ermöglichen über die eine Klasse auf die 
+	korrespondierende zuzugreifen.

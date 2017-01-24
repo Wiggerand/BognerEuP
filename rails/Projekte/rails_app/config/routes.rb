@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   root 'events#index' #Wenn Localhost aufgerufen werden soll auf die Index Seite
   resources :events do
   	resources :registrations

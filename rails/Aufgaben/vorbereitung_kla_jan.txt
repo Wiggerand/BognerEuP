@@ -1,0 +1,74 @@
+1. Erstellen Sie eine Applikation books.
+		rails new books
+		cd books
+
+2. Nutzen Sie für diese Applikation das CSS-Framework Foundation.
+
+Gemfiles Ordner
+		gem therubyracer freigeben und gem 'foundation-rails'
+		bundle install
+		rails g foundation:install
+
+3. Erstellen Sie eine Resource mit scaffold books mit den Spalten
+	author, title, description (text), published_on (Date)
+
+		rails g scaffold books author:string title:string description:text published_on:date
+		rake db:migrate
+
+4. Stellen Sie sicher das beim Aufruf der Seite die index-action der 
+	Resource Book aufgerufen wird.
+
+		In der routes.rb root 'books#index' hinzufügen
+
+5. Erstellen Sie einen Link in der Navigationsleiste, der auf 
+	die Index-Seite verweist.Topbar einbinden.
+
+		In app/views/layouts/ die _top_bar.html.erb einfügen mit
+
+		<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Site Title</li>
+      <li>
+        <a href="#">One</a>
+        <ul class="menu vertical">
+          <li><a href="#">One</a></li>
+          <li><a href="#">Two</a></li>
+          <li><a href="#">Three</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Two</a></li>
+      <li><a href="#">Three</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
+
+		In dem Ordner In app/views/layouts application.html.erb im <head> 
+		<%= render 'layouts/top_bar' %> einfügen
+
+6. Erstellen Sie eine untergeordnete Resource Likes, die eine Spalte
+	quality(integer) hat. Sichern Sie ab dass ein Like immer einem 
+	Book-Objekt zugeordnet ist.
+	
+	rails g scaffold likes quality:integer book:references
+
+	Im likes_controller
+	before_action :set_book
+  	def set_book
+    @book = Book.find(params[:book_id]) hinzufügen bzw. abändern.
+
+7. Stellen Sie sicher das der Benutzer bei der Neuanlage/Update 
+	eines Likes eine Zahl von 1 bis 5 eingeben muss.
+	Ansonsten wird das Formular nicht gespeichert.
+
+
+
+8. Erstellen Sie eine View-Helper, der für ein Book-Objekt den 
+	Durchschnitt aller Likes für dieses Objekt errechnet und auf der 
+	Book-Show-Seite ausgibt. 
