@@ -1,0 +1,26 @@
+<h1>Sign In</h1>
+
+<%= form_tag(session_path) do %>
+
+	<fieldset>
+		<div class="row">
+			<div class="medium-4 columns"></div>
+			<%= label_tag :email %>
+			<div class="medium-8 columns"></div>
+			<%= email_field_tag :email, "", autofocus: true %>
+		</div>
+		<div class="row">
+			<div class="medium-4 columns"></div>
+			<%= label_tag :password %>
+			<div class="medium-8 columns"></div>
+			<%= password_field_tag :password %>
+		</div>
+		<div class="row">
+			<div class="medium-4 columns"></div>
+			<%= submit_tag 'SignIn' %>
+			<div class="medium-8 columns"></div>
+
+		</div>
+
+	</fieldset>
+<% end %>

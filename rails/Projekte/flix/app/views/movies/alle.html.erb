@@ -10,12 +10,12 @@
 		<th colspan="41"></th>
 	</tr>
 	
-	<%= @reviews.each do |review| %>
+	<% @reviews.each do |review| %>
 	<tr>
 		<td><%= review.name %></td>
 		<td><%= review.stars %></td>
 		<td><%= review.comment %></td>
-		<td><%= review.movie %></td>
+		<td><%= review.movie.title %></td>
 
 
 	</tr>

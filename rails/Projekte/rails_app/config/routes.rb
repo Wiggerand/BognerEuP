@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
+  
   root 'events#index' #Wenn Localhost aufgerufen werden soll auf die Index Seite
+  
+  get 'signup' => 'users#new'
+  resource :session
+  resources :users
   resources :events do
   	resources :registrations
   end
