@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_signin, except: [:new, :create]
+  before_action :require_correct_user, only: [:edit, :update, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id #Wenn niemand eingeloggt um neuen user anzulegen
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -63,6 +65,13 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    
+    def require_correct_user
+      unless current_user == @user
+        redirect_to users_url, alert: "Darfst du das tatsächlich?!"
+      end
+    end
+
     def set_user
       @user = User.find(params[:id])
     end

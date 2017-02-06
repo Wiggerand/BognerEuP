@@ -1,11 +1,17 @@
 MOVIE - Applikation
   Erzeugen Sie eine resouce mit dem Namen user
     Felder: name, email, password
-  Zulassen, dass das bcrypt-gem greift (Zeile 28 auskommentierung aufheben)
+  Zulassen, dass das bcrypt-gem greift (Zeile 28 auskommentierung aufheben) 
+  und bundle install ausführen
   Validations: name und email auf ausgefüllt überprüfen und email auf Format prüfen
   2 Testuser anlegen
 
+rails c
+e.errors.full_messages
+
 Nach dem Anlegen des User-Models wird das Web-Interface mit folgenden Funktionen implementiert:
+rails g scaffold users name:string email:string password:digest
+
   - Benutzer ermöglichen einen Account anzulegen
   - Account editieren, ansehen und löschen
   - alle existierenden Accounts anzeigen
@@ -13,6 +19,7 @@ Nach dem Anlegen des User-Models wird das Web-Interface mit folgenden Funktionen
   Login
 
 Erzeugen eines Controllers mit der Bezeichnung sessions.
+rails g controller sessions erstellen
 Erzeugen von Routen für eine 'singular session resource'.
 Erstellen eines SignIn-Links im Header-Bereich.
 

@@ -5,31 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= javascript_include_tag "vendor/modernizr" %>
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+  <%= render 'layouts/top_bar' %>
   <body>
-<div class="row">
 
-    <a href="/events">
-      <%= image_tag 'logo.png' %></a>
-    </div>
-      <div class="clearfix">
-      </div>
-  
-      <%= render 'layouts/top_bar' %>
-        <div class="row">
-       
-        <%= render 'layouts/flash_messages' %>
-          <div class="medium-3 columns">
-             <%= render 'layouts/side_bar' %>
-          </div>
-            <div class="medium-9 columns">
-         <%= yield %>
-            </div>
-      </div>
-  </div>
+    <%= yield %>
+
   </body>
 </html>

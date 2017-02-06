@@ -1,0 +1,115 @@
+rails g migration AddAdminToUsers admin:boolean
+Unter db erscheint in den migrates
+class AddAdminToUsers < ActiveRecord::Migration[5.0]
+  def change
+    add_column :users, :admin, :boolean
+  end
+end
+
+Danach bundle exec rake db:migrate
+wenn das normale nicht funktioniert
+rake db migrate
+
+Im events_controller.rb erweitern
+before_action :require_admin, except: [:index, :show]
+
+Im application_controller.rb
+eine neue Methode erstellen.
+
+def require_admin
+	unless current_user && current_user.admin?
+  		redirect_to root_url, alert: "Bist du ein Admin??"  	
+end
+
+rails c 
+andre = User.find(5)
+andre.admin
+=>nil
+andre.admin?
+=>false
+ADMIN ANLEGEN
+andre.admin = true
+andre.save
+andre
+=>admin: true
+
+
+
+Im application_controller neue Methode
+def current_user_admin?
+
+  	current_user && current_user.admin?
+
+  end
+  helper method :current_user_admin?
+  
+  In der Index.html.erb von den event
+  <% if current_user %>
+  über der Regestrations
+  <% if current_user_admin? %>
+  oberhalb zum Editieren
+  und unterhalb von Destroy 
+  <% end %>
+  der link to mit if erweitern
+  <p><%= link_to "Neuen Event anlegen", new_event_path if current_user_admin?, :class => "success button" %></p>
+
+  railscasts.com/
+
+Wir benötigen eine n zu m Beziehung
+mehrere user können an mehreren Events telnehmen
+Das bedeutet eine Zwischentabelle (Registration)
+
+ rails g migration MakeRegistrationAsAJoinTable
+In dem db/mirations MakeRegistration die def up Methode erstellen
+
+def up
+  	Registration.delete_all
+  	remove_column :registrations, :name
+  	remove_column :registrations, :email
+  	add_column :registrations, :user_id, :integer
+  end
+
+  def down
+  	Registration.delete_all
+  	add_column :registrations, :name, :string
+  	add_column :registrations, :email, :string
+  	remove_column :registrations, :user_id
+  end
+
+In der user.rb
+has_many :registrations, :dependent => :destroy
+hinzufügen
+
+registratin.rb
+belongs_to :user
+
+event.rb
+has_many :registrations, :dependent => :destroy
+
+In der _form.html.erb von registrations
+
+<div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  entfernen
+
+
+  Die registrations
+  show.html.erb
+  um user erwitern
+  <p>
+  <strong>Name:</strong>
+  <%= @registration.user.name %>
+</p>
+
+
+
+
+
+

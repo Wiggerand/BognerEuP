@@ -23,9 +23,9 @@
         <td><%= movie.description %></td>
         <td><%= movie.released_on %></td>
         <td><%= link_to 'Review', movie_reviews_path(movie.id), :class => "button success" %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', movie, :class => "button success" %></td>
+        <td><%= link_to 'Edit', edit_movie_path(movie), :class => "button success" %></td>
+        <td><%= link_to 'Destroy', movie, :class => "button alert", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
