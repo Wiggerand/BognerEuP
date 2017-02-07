@@ -1,0 +1,84 @@
+rails g resource like event:references user:references
+bundle exec rake db:migrate
+
+In der app/models/event.rb  
+has_many :likes, dependent: :destroy	(dependent = abhängig)
+has_many :likers, through: :likes, source: :user 
+(through = durch)
+
+user.rb erweitern
+has_many :likes, dependent: :destroy
+has_many :liked_events, through: :likes, source: :event
+
+
+users_controller Methode def show ändern
+def show
+    @liked_events = @user.liked_events
+  end
+
+  In den Views/user/show.html.erb
+  erweitern mit
+  <% if @liked_events.any? %>
+<h3>Liked Events</h3>
+<p>
+	<ul>
+		<% @liked_events.each do |event| %>
+		<li><%= event.name %></li>
+		<% end %>
+	</ul>
+
+
+</p>
+<% end %>
+
+rails c 
+u = User.first
+u.likes.create(event_id: 1)
+
+in der events_controller
+def show
+		@likers = @event.likers
+	end
+
+
+	views/events/show.html.erb
+	<% if @likers.any? %>
+
+	<h3>Likers</h3>
+	<ul>
+		<% @likers.each do |user| %>
+		<li><%= user.email %></li>
+		<% end %>
+
+	</ul>
+
+<% end %>
+In der routes.rb
+resources likes den events untergeordnet
+resources :events do
+  	resources :likes
+
+ In den events show.html.erb erweitern
+
+ <%= button_to 'Like', event_likes_path(@event), class: 'button primary' %>
+ In dem likes/controller
+ Methode create hinzufügen
+ def create
+		@event = Event.find(params[:event_id])
+		@event.likes.create(user_id: current_user.id)
+	end
+
+
+	class LikesController < ApplicationController
+
+	def create
+		@event = Event.find(params[:event_id])
+		unless Like.where(user_id: current_user.id, event_id: @event.id).any?
+		@event.likes.create(user_id: current_user.id)
+		redirect_to @event, notice: "Event wurde geliked"
+	else
+		redirect_to @event, alert: "Doppelt liken nicht möglich"
+		end
+	end
+
+end

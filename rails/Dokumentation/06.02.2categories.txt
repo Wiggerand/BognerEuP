@@ -1,0 +1,61 @@
+m : n
+rails g resource category name:string
+	zwischentabelle erstellen
+rails g model categorization event:references category:references
+unter db/migrate sind beide zu sehen
+bundle exec rake db:migrate
+In den Models kontrollieren
+category.rb
+class Category < ApplicationRecord
+	has_many :categorizations, dependent: :destroy
+	has_many :events, through: :categorizations
+
+	validates :name, presence: true
+end
+---------------------------------------------------
+event.rb
+	has_many :categorizations, dependent: :destroy
+	has_many :categories, through: :categorizations
+---------------------------------------------------
+rails c
+	names = %w(Rails Ruby Free Social)
+	names.each { |n| Category.create(name: n) }
+	Category.last
+
+	category = Category.find_by(name: 'Social')
+
+	event.categories << category fügt category in die Tabelle categories ein
+
+	event.categories
+	event.category_ids = [1,2,3] weisst ids hinzu
+	event.category_ids zeigt die ids an
+	----------------------------------------------------
+	in dem events_controller die show methode erweitern
+	@categories = @event.categories
+
+	Views/events/show.html.erb hinzufügen
+	<p><h3>Categories</h3>
+<ul>
+		<% @categories.each do |category| %>
+			<li>>%= category.name %></li>
+			<% end %>
+</ul>
+
+</p>
+
+views/events/_form.html.erb erweitern mit 
+<p>
+			<%= f.label :categoriy_ids %>
+			<%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
+	</p>
+
+-------------------------------------------------------
+Controller/events_controller.rb
+
+def event_params
+			
+			params.require(:event).permit(:name, :description, :location, :price, :start_date, :category_ids => [])
+				
+		end
+		wurde erweitert mit 	:category_ids => []
+

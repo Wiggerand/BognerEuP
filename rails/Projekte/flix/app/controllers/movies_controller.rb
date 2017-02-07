@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin, except: [:index] #Nicht eingeloggt, nur Inhalt der Tabelle index sichtbar
   before_action :require_admin, except: [:index, :show]
   # GET /movies
   # GET /movies.json

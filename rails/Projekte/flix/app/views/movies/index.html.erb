@@ -22,10 +22,14 @@
         <td><%= movie.total_gross %></td>
         <td><%= movie.description %></td>
         <td><%= movie.released_on %></td>
+        <% if current_user %>
         <td><%= link_to 'Review', movie_reviews_path(movie.id), :class => "button success" %></td>
         <td><%= link_to 'Show', movie, :class => "button success" %></td>
+        <% if current_user_admin? %>
         <td><%= link_to 'Edit', edit_movie_path(movie), :class => "button success" %></td>
         <td><%= link_to 'Destroy', movie, :class => "button alert", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -33,5 +37,6 @@
 
 <br>
 
-<%= link_to 'New Movie', new_movie_path %>
-<%= link_to 'Alle Reviews anzeigen', allreviews_url %>
+<%= link_to 'New Movie', new_movie_path if current_user_admin? %>
+</br>
+<%= link_to 'Alle Reviews anzeigen', allreviews_url %></br>
