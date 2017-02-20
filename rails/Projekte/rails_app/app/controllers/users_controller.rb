@@ -57,7 +57,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+   
+       @user.destroy
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -68,8 +70,8 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     
     def require_correct_user
-      unless current_user == @user
-        redirect_to users_url, alert: "Darfst du das tatsächlich?!"
+      if  !current_user.admin?
+        redirect_to users_url, alert: "Du bist weder Admin noch der angemeldete User?!"
       end
     end
 
