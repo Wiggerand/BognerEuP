@@ -1,0 +1,318 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" >Lager Verwaltung</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+<div class="row">
+    <tr>
+      <th><div class="col-md-4">Dear</div></th>
+      <th><div class="col-md-8">Firstname</div></th>
+      <th><div class="col-md-8">Lastname</div></th>
+      <th><div class="col-md-8">Street</div></th>
+      <th><div class="col-md-8">City</div></th>
+      <th><div class="col-md-8">Plz</div></th>
+      <th><div class="col-md-8">Tel</div></th>
+      <th><div class="col-md-8">Email</div></th>
+      <th><div class="col-md-8">Privacypolicy</th></div>
+      <th colspan="3"></th>
+    </tr>
+    </div>
+  </thead>
+  <div class="row">
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.dear %></td>
+        <td><%= customer.firstname %></td>
+        <td><%= customer.lastname %></td>
+        <td><%= customer.street %></td>
+        <td><%= customer.city %></td>
+        <td><%= customer.plz %></td>
+        <td><%= customer.tel %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.privacypolicy %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </div>
+
+    <%= render 'layouts/nav_bar' %>
+
+    *= require bootstrap
+
+    //= require bootstrap
+
+    gem 'bootstrap3-rails'
+
+    root 'customers#index'
+
+    rails g scaffold customers dear(Anrede) firstname lastname street city postcode tel email privacypolicy(Datenschutzerklärung)
+      rake db:migrate
+
+    rails g scaffold cars vehicle(Auto Marke) registration(Kennzeichen) customer:references
+      rake db:migrate
+
+      rails g scaffold tires producer(Hersteller) dot:integer
+      car:references
+
+
+      <p id="notice"><%= notice %></p>
+
+<h1>Cars</h1>
+
+<ul>
+  <thead>
+    <tr>
+      <th><div class="col-md-8">Vehicle</div></th>
+      <th><div class="col-md-8">Registration</div></th>
+      <th><div class="col-md-8">Customer</div></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <ul>
+        <td><%= car.vehicle %></td>
+        <td><%= car.registration %></td>
+        <td><%= car.customer.lastname %></td>
+        <td><%= link_to 'Show', customer_cars_path %></td>
+        <td><%= link_to 'Edit', edit_customer_car_path(@customer.id, car) %></td>
+        <td><%= link_to 'Destroy', customer_car_path(@customer.id, car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </ul>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car', new_customer_car_path %>
+<%= link_to 'Back', root_path %>
+
+rails g scaffold users name admin:boolean password:digest
+
+rails g controller session
+
+rails g scaffold tires producer dot1:integer dot2:integer storagelocation rack line cars:references
+
+
+class Registration < ApplicationRecord
+  belongs_to :event
+  belongs_to :user 
+  HOW_HEARD_OPTIONS = [
+    'Newsletter', 
+    'Blog Post', 
+    'Twitter', 
+    'Other'
+  ]
+
+  validates :user_id, presence: true 
+  validates :how_heard, inclusion: { in: HOW_HEARD_OPTIONS }
+end
+
+in der _form.html.erb
+
+<div class="field">
+    <%= f.label :vehicle %>
+    <%= f.select :vehicle, Car::HOW_HEARD_CARS, prompt: 'Wählen Sie bitte ein Fahrzeug aus!' %>
+  </div>
+
+   HOW_HEARD_TIRES = [ 
+       '155/65 R13',
+       '155/70 R13',
+       '155/80 R13',
+       
+       '165/55 R13',
+       '165/65 R13',
+       '165/70 R13',
+       '165/80 R13',
+       
+       '175/50 R13',
+       '175/60 R13',
+       '175/65 R13',
+       '175/70 R13',
+
+       '185/60 R13',
+       '185/70 R13',              195 ⁄ 60 R14        
+       '195/45 R13',   
+       '195/55 R13',                        
+       '195/70 R13',                          
+       '205/50 R13',                          
+       '205/60 R13',                          
+       '225/45 R13', 
+            
+
+    15"                          
+                                   
+                                   
+          '155/80 R15',                         
+          '165/45 R15',                             
+          '165/50 R15',                              
+          '175/55 R15',                      
+          '175/60 R15',                          
+          '175/65 R15',                           
+          '185/45 R15',                         
+          '185/55 R15',                          
+          '185/60 R15',                         
+          '185/65 R15',                          
+          '195/45 R15',                       
+          '195/50 R15',                         
+          '195/55 R15',                         
+          '195/60 R15',                            
+          '195/65 R15',                          
+          '195/70 R15',                          
+          '195/80 R15',                       
+          '205/45 R15',                         
+          '205/50 R15',                           
+          '205/55 R15',                              
+          '205/60 R15',                             
+          '205/65 R15',                        
+          '205/70 R15',                            
+          '215/40 R15',                          
+          '215/45 R15',                         
+          '215/50 R15',                        
+          '215/60 R15',                        
+          '215/65 R15',                          
+          '215/70 R15',                        
+          '215/75 R15',                         
+          '225/50 R15',                            
+          '225/60 R15',                            
+          '225/75 R15',                           
+          '235/75 R15',                           
+          '245/35 R15',                            
+          '255/60 R15',                            
+          '255/70 R15',                          
+          '265/70 R15',                   
+          '265/75 R15',                 
+                     
+ 17"      '165/35 R17',                  
+          '165/40 R17',                           
+          '185/35 R17',                       
+          '195/40 R17',                         
+          '195/45 R17',                            
+          '205/35 R17',                            
+          '205/40 R17',                           
+          '205/45 R17',                           
+          '205/50 R17',                        
+          '205/55 R17',                         
+          '215/35 R17',                        
+          '215/40 R17',                          
+          '215/45 R17',                          
+          '215/50 R17',                          
+          '215/55 R17',                         
+          '215/60 R17',                         
+          '225/35 R17',                         
+          '225/40 R17',                           
+          '225/45 R17',                            
+          '225/50 R17',                         
+          '225/55 R17',                          
+          '225/60 R17',                           
+          '225/65 R17',                          
+          '225/70 R17',                           
+          '235/40 R17',                            
+          '235/45 R17',                         
+          '235/50 R17',                       
+          '235/55 R17',                           
+          '235/60 R17',                           
+          '235/65 R17',                           
+          '245/35 R17',                             
+          '245/40 R17',                             
+          '245/45 R17',                           
+          '245/50 R17',                         
+          '245/55 R17',                           
+          '245/65 R17',                        
+          '245/70 R17',                            
+          '255/40 R17',                         
+          '255/45 R17',                         
+          '255/50 R17',                         
+          '255/60 R17',                         
+          '255/65 R17',                            
+          '255/70 R17',                           
+          '265/40 R17',                             
+          '265/65 R17',                          
+          '265/70 R17',                          
+          '275/40 R17',                         
+          '275/55 R17',                 
+          '275/65 R17',                 
+          '285/40 R17',                 
+          '335/35 R17',                 
+                     
+
+    #validates :how_heard, inclusion: { in: HOW_HEARD_TIRES_}
+    
+  
+
+tire.rb
+  belongs_to :car
+
+  PRODUCER_OPTIONS = [
+    'Bridgestone',
+    'Continental',
+    'Dunlop',
+    'Falken',
+    'Firstone',
+    'Hankook',
+    'Goodyear',
+    'Hercules',
+    'Kleber',
+    'Sailun'
+  ]
+  validates :producer, inclusion: { in: PRODUCER_OPTIONS }
+
+
+
+
+https://github.com/carrierwaveuploader/carrierwave
