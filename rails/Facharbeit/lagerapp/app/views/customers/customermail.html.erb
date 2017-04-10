@@ -1,0 +1,42 @@
+<h1><kbd>Kunden Kartei</kbd></h1>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <div class="row">
+    <tr>
+    
+      <th>Anrede</th>
+      <th>Vorname</th>
+      <th>Nachname</th>
+      <th>E-Mail</th>
+      <th>Datenschutzerklärung</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.dear %></td>
+      <td><%= customer.firstname %></td>
+      <td><%= customer.lastname %></td>
+      <td><%= customer.email %></td>
+      <td><%= db(customer.privacypolicy) %></td>     <!--helper true/Liegt vor/ flase/Liegt nicht vor-->
+    </tr>
+      
+      
+    <% end %>
+   
+    
+     
+
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Rundmail verschicken', sendmail_path, :class =>"label label-success" %></br></br>
+
+<%= link_to 'Zurück', root_path, :class =>"label label-info" %></br></br>
+
