@@ -2,6 +2,9 @@
  
 <h1><kbd>Kunden Kartei</kbd></h1>
 
+<%= link_to 'Neuen Kunden anlegen', new_customer_path, :class =>"label label-success" if current_user %></br></br>
+
+
 
 
 <table class="table table-striped">
@@ -53,7 +56,5 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'Neuen Kunden anlegen', new_customer_path, :class =>"label label-success" if current_user %></br></br>
 
