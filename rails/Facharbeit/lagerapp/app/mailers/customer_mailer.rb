@@ -3,9 +3,9 @@ class CustomerMailer < ApplicationMailer #ActionMailer::Base
   layout 'mailer'
 
 	def sendmail(customer)
-		@customer = Customer.first
+		@customer = customer
 
-		mail(to: @customer.email, subject: "Die neue Saison steht vor der Tür!")#@customer.email.where(privacypolicy: true), subject: "Welcome to Autowerkstatt")
+		mail(to: @customer.email, subject: "Die neue Saison steht vor der Tür")#
 		
 	end
 

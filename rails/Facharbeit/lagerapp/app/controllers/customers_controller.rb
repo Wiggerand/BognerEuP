@@ -70,7 +70,9 @@ class CustomersController < ApplicationController
 
   def sendmail
     @customers = Customer.where(privacypolicy: true)
-    CustomerMailer.sendmail(@customer).deliver_later
+    @customers.each do |cu|
+    CustomerMailer.sendmail(cu).deliver_later
+    end
   end
 
   private

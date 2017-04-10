@@ -10,15 +10,12 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    #:address =>              'smtp.gmail.com',
-    :address =>              'smtp.web.de',
-    :port =>                 587,
-    #:user_name =>            'human.resource.fabian.knoop@gmail.com',
-    :user_name =>            'autowerkstatt@web.de',
-    #:password =>             '%G16Admin',
-    :password =>             'Autowerkstatt2017',
-    :authentication =>       'plain',
-    :enable_starttls_auto => true
+    address:               'smtp.web.de',
+    port:                  587,
+    user_name:             'autowerkstatt@web.de',
+    password:              'Autowerkstatt2017',
+    authentication:        'plain',
+    enable_starttls_auto:  true
 
   }
 
