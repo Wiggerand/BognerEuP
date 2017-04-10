@@ -1,5 +1,6 @@
  <nav class="navbar navbar-inverse">
  <a class="navbar-brand">Lagerverwaltung</a>
+ 
   <%= image_tag 'reifen.png', :class => "img-myown", :align => "center" %>
   <div class="container-fluid">
     
@@ -13,6 +14,10 @@
       <li class="active"><%= link_to 'Mitarbeiter', users_path %></li>
       <li class="active"><%= link_to 'Kundenmail verschicken', customermail_path %></li>
     <% end %>
+    <%= form_tag(customers_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Kunden oder Kennzeichen suchen" %>
+    <%= submit_tag "Suchen", :name => nil %>
+<% end %>
     </ul>
     <ul class="nav navbar-nav navbar-right">
     <% if current_user %>

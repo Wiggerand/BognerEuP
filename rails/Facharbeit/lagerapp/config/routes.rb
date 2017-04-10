@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   
+  root 'customers#index'
   resources :session
   
   get 'customermail' => 'customers#customermail'
   get 'signup' => 'users#new'
   get 'sendmail' => 'customers#sendmail'
   resources :users
-  root 'customers#index'
+  
 
     resources :customers do
       resources :cars do

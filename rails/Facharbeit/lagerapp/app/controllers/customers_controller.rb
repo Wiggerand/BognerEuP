@@ -3,9 +3,9 @@ class CustomersController < ApplicationController
  
   # GET /customers
   # GET /customers.json
-  def index
-    @customers = Customer.all
-  end
+  #def index
+  #  @customers = Customer.all
+  #end
 
   # GET /customers/1
   # GET /customers/1.json
@@ -74,6 +74,15 @@ class CustomersController < ApplicationController
     CustomerMailer.sendmail(cu).deliver_later
     end
   end
+
+  def index
+ # @customers = Customer.all
+  if params[:search]
+    @customers = Customer.where(lastname: params[:search]).order("created_at DESC")
+  else
+    @customers = Customer.all.order("created_at DESC")
+  end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

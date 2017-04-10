@@ -8,4 +8,9 @@ class Customer < ApplicationRecord
     'Frau', 'Herr', 'Firma'
     ]
     validates :dear, inclusion: { in: DEAR_OPTIONS }
+
+   # def self.search(search)
+  	#	where("@customers.lastname LIKE ?", "%#{search}%") 
+	#end
+
 end
