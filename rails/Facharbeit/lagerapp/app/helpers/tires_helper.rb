@@ -10,8 +10,8 @@ module TiresHelper
 
 	def check_dot(dotyear)
 		date = DateTime.now() 
-   		cal = date.strftime("%Y").to_i 
-		 if cal - 2000 - dotyear <= 5 
+   		cal = date.strftime("%Y").to_i - 2000
+		 if cal - dotyear <= 5 
             "success"
 					
 		 else

@@ -43,8 +43,9 @@ class Tire < ApplicationRecord
     )
  # validates :dotweek, inclusion: { in: DOTWEEK_OPTIONS }
     date = DateTime.now() 
-    cal = date.strftime("%y").to_i
-  DOTYEAR_OPTIONS = (10..cal)
+    calnow = date.strftime("%y").to_i
+    calold = date.strftime("%y").to_i - 10
+  DOTYEAR_OPTIONS = (calold..calnow)
   #validates :dotyear, inclusion: { in: DOTYEAR_OPTIONS }
 
   RACK_OPTIONS = [

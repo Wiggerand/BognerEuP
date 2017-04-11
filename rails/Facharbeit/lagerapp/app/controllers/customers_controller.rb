@@ -7,6 +7,25 @@ class CustomersController < ApplicationController
   #  @customers = Customer.all
   #end
 
+  def index
+    if params[:search]
+        if !(/(\S+)-(\S+)/.match(params[:search]))
+          @customers = Customer.where(lastname: params[:search])  
+        else
+          @car = Car.find_by(registration: params[:search])
+         # raise @car.inspect
+          if @car.blank?
+            redirect_to customers_path, notice: 'Die Suche ergab keinen Erfolg'
+          else
+            @customers = Customer.where(id: @car.customer_id)
+          end
+                
+        end
+    else
+      @customers = Customer.all#.order("created_at ASC")
+      #@cars = Cars.all
+    end
+  end
   # GET /customers/1
   # GET /customers/1.json
   def show
@@ -75,14 +94,6 @@ class CustomersController < ApplicationController
     end
   end
 
-  def index
- # @customers = Customer.all
-  if params[:search]
-    @customers = Customer.where(lastname: params[:search]).order("created_at DESC")
-  else
-    @customers = Customer.all.order("created_at DESC")
-  end
-end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% if current_user_admin? %>
 <p>
   <strong>Producer:</strong>
   <%= @tire.producer %>
@@ -47,3 +47,4 @@
 
 <%= link_to 'Edit', edit_customer_car_tire_path(@customer.id, @car.id, @tire) %> |
 <%= link_to 'Back', customer_car_tires_path %>
+<% end %>

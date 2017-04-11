@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% if current_user_admin? %>
 <p>
   <strong>Loginname:</strong>
   <%= @user.loginname %>
@@ -12,3 +12,4 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<% end %>

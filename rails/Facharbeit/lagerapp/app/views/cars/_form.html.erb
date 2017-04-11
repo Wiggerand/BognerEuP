@@ -12,16 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :vehicle %>
+    <%= f.label :automarke %>
     <%= f.select :vehicle, Car::VEHICLE_OPTIONS, prompt: "Fahrzeugmarke auswählen" %>
   </div>
 
   <div class="field">
-    <%= f.label :registration %>
-    <%= f.text_field :registration %>
+    <%= f.label :kennzeichen %>
+    <%= f.text_field :registration, placeholder: "z.B.HH-HH 123" %>
   </div>
-
- 
 
   <div class="actions">
     <%= f.submit %>

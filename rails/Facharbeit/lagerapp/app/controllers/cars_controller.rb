@@ -4,8 +4,15 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    @cars = @customer.cars
+ #   @cars = @customer.cars
+    if params[:searching]
+      @cars = Car.where(registration: params[:searching]) #|| 
+      #@cars = Cars.where(registration: params[:search])
+    else
+      @cars = Car.all#.order("created_at DESC")
+    end
   end
+  
 
   # GET /cars/1
   # GET /cars/1.json

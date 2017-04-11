@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-
-<h1><kbd>KFZ <%= @customer.lastname %></kbd></h1>
+<% if current_user_admin? %>
+<h3><kbd>KFZ <%= @customer.lastname %></kbd></h3>
 
 <table>
   <thead>
@@ -38,3 +38,5 @@
 <%= link_to 'Neues KFZ anlegen', new_customer_car_path(@customer) %>
 </br>
 <%= link_to 'Zurück', root_path %>
+
+<% end %>

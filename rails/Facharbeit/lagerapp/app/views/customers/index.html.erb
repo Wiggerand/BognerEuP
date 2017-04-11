@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
  
-<h1><kbd>Kunden Kartei</kbd></h1>
-
-<%= link_to 'Neuen Kunden anlegen', new_customer_path, :class =>"label label-success" if current_user %></br></br>
-
+<h3><kbd>Kunden Kartei</kbd></h3>
 
 <% if @customers.blank? %>
-  <h4>There are no customers containing the term <%= params[:search] %>.</h4>
-<% end %>
+  <%= link_to "Zurück", root_path, class: "label label-info" %>
+  <h3 class="bg-danger">Keine Übereinstimmung von "<%= params[:search] %>" gefunden. Eingabe überprüfen.</h3>
+<% else %>
+  <%= link_to 'Neuen Kunden anlegen', new_customer_path, :class =>"label label-success" if current_user %>
+  <% end %>
 
 <table class="table table-striped">
   <thead>

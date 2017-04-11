@@ -1,6 +1,7 @@
 class Car < ApplicationRecord
   belongs_to :customer
   has_many :tires
+  #validates :registration, presence: true, format: { with: }
   VEHICLE_OPTIONS = [
   	'Audi',
   	'BMW',

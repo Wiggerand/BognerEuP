@@ -15,7 +15,7 @@
       <li class="active"><%= link_to 'Kundenmail verschicken', customermail_path %></li>
     <% end %>
     <%= form_tag(customers_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Kunden oder Kennzeichen suchen" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Kunden / Kennzeichen suchen" %>
     <%= submit_tag "Suchen", :name => nil %>
 <% end %>
     </ul>
@@ -30,3 +30,4 @@
     </ul>
   </div>
 </nav> 
+<p>http://www.rymcmahon.com/articles/2    Search</p>

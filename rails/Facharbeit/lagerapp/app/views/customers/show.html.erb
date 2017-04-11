@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-<h2><kbd>Karteikarte von <%= @customer.lastname %></kbd></h2>
+<h3><kbd>Karteikarte von <%= @customer.lastname %></kbd></h3>
 
 
   <table class="table table-striped">
@@ -59,49 +59,3 @@
 <%= link_to 'Zurück', root_path, :class => "label label-info" %>
  
 
-<!--
-<p>
-  <strong>Anrede:</strong>
-  <%= @customer.dear %>
-</p>
-
-<p>
-  <strong>Vorname:</strong>
-  <%= @customer.firstname %>
-</p>
-
-<p>
-  <strong>Nachname:</strong>
-  <%= @customer.lastname %>
-</p>
-
-<p>
-  <strong>Strasse:</strong>
-  <%= @customer.street %>
-</p>
-
-<p>
-  <strong>Stadt:</strong>
-  <%= @customer.city %>
-</p>
-
-<p>
-  <strong>Plz:</strong>
-  <%= @customer.plz %>
-</p>
-
-<p>
-  <strong>Tel:</strong>
-  <%= @customer.tel %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
-
-<p>
-  <strong>Datenschutzerklärung:</strong>
-  <%= db(@customer.privacypolicy) %>
-</p>
--->

@@ -12,42 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :producer %>
+    <%= f.label :hersteller %>
     <%= f.select :producer, Tire::PRODUCER_OPTIONS, prompt: "Reifen Hersteller wählen" %>
   </div>
 
   <div class="field">
-    <%= f.label :tiresize %>
+    <%= f.label :reifengröße %>
     <%= f.select :tiresize, Tire::TIRESIZE_OPTIONS, prompt: "Reifengröße wählen" %>
   </div>
 
   <div class="field">
-    <%= f.label :dotweek %>
+    <%= f.label :dotwoche %>
     <%= f.select :dotweek, Tire::DOTWEEK_OPTIONS, prompt: "Dot Woche wählen" %>
   </div>
 
   <div class="field">
-    <%= f.label :dotyear %>
+    <%= f.label :dotjahr %>
     <%= f.select :dotyear, Tire::DOTYEAR_OPTIONS, prompt: "Dot Jahr wählen" %>
   </div>
 
   <div class="field">
-    <%= f.label :storage1 %>
+    <%= f.label :lager1 %>
     <%= f.radio_button :storage1, true %>
   </div>
 
   <div class="field">
-    <%= f.label :storage2 %>
+    <%= f.label :lager2 %>
     <%= f.radio_button :storage1, false %>
   </div>
 
   <div class="field">
-    <%= f.label :rack %>
+    <%= f.label :regal %>
     <%= f.select :rack, Tire::RACK_OPTIONS, prompt: "Regal wählen" %>
   </div>
 
   <div class="field">
-    <%= f.label :case %>
+    <%= f.label :fach %>
     <%= f.select :case, Tire::CASE_OPTIONS, prompt: "Fach wählen" %>
   </div>
 
