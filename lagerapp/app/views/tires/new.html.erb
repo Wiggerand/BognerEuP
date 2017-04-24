@@ -1,0 +1,6 @@
+<h3><kbd>Karteikarte von <%= @customer.firstname %> <%= @customer.lastname %></kbd></h3>
+<h3><kbd>Reifen für <%= @car.vehicle %> / <%= @car.registration %> hinzufügen</kbd></h3>
+
+<%= render 'form', tire: @tire %>
+
+<%= link_to 'Back', customer_path(@customer), :class => "label label-info" %>

@@ -1,0 +1,7 @@
+<h3><kbd><%= @customer.lastname %> <%= @car.vehicle %></kbd></h3>
+<h3><kbd>Reifen ändern</kbd></h3>
+
+<%= render 'form', tire: @tire %>
+
+
+<%= link_to 'Zurück', customer_path(@customer), :class => "label label-info" %>
