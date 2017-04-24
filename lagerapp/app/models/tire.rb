@@ -55,7 +55,7 @@ class Tire < ApplicationRecord
   validates :rack, inclusion: { in: RACK_OPTIONS }
 
   CASE_OPTIONS = [
-    '1','2','3','4','5'
+    '1','2','3','4','5','6','7','8','9','10'
   ]
 
   validates :case, inclusion: { in: CASE_OPTIONS }

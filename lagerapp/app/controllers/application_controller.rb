@@ -19,9 +19,9 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-	def require_admin
-		unless current_user_admin?
-			redirect_to root_path, alert: "Na, schon mal etwas von Hierarchie gehört, du bist kein Admin!!!"
-		end
-	end
+#	def require_admin
+#		unless current_user_admin?
+#			redirect_to root_path, alert: "Na, schon mal etwas von Hierarchie gehört, du bist kein Admin!!!"
+#		end
+#	end
 end
