@@ -22,7 +22,7 @@ c = Customer.create(dear: "Herr", firstname: "Herbert", lastname: "Meier", stree
 c1 = Car.create(vehicle: "Porsche", registration: "HH-FK 6666", customer_id: c.id)
 Tire.create(producer: "Kleber", tiresize: "265/70 R15", dotweek: 5, dotyear: 13, storage1: false, rack: "5", case: "3", car_id: c1.id)
 	
-d = Customer.create(dear: "Herr", firstname: "Andrew", lastname: "Schneider", street: "Kanalstrasse 5", city: "Hamburg", plz: "22752", tel: "040745727", email: "awiggers@live.de", privacypolicy: true)
+d = Customer.create(dear: "Herr", firstname: "Andrew", lastname: "Schneider", street: "Kanalstrasse 5", city: "Hamburg", plz: "22752", tel: "040745727", email: "wiggers@", privacypolicy: true)
 d1 = Car.create(vehicle: "Tesla", registration: "HH-AS 666", customer_id: d.id)
 Tire.create(producer: "Kleber", tiresize: "265/70 R15", dotweek: 51, dotyear: 15, storage1: true, rack: "3", case: "2", car_id: d1.id)
 
